@@ -1,0 +1,30 @@
+/* entire section tag for tweet form */
+.new-tweet {
+  
+}
+
+#tweet-text {
+  min-width: 100%;
+  max-width: 100%;
+  border: none;
+  background: inherit;
+  font-weight: bolder;
+  border-bottom: 3px solid #000000;
+}
+/* button for tweet */
+.tweet-button {
+  font-family: 'Bungee', sans-serif;
+  background-color: #3149b3;
+  color: white;
+}
+
+.counter {
+  font-family: 'Bungee', sans-serif;
+}
+
+
+
+.tweet-control {
+  display: flex;
+  justify-content: space-between;
+}
