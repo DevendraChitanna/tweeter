@@ -8,6 +8,8 @@ nav{
   padding-left: 1.5em;
   padding-right: 1.5em;
   align-items: center;
+  position: absolute;
+  margin-bottom: 100px;
 }
 .right{
   font-size: 32px;

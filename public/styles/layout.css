@@ -17,6 +17,8 @@ html {
 nav {
   font-family: 'Bungee', cursive;
 }
+
+
 /* everything in the body will use source sans pro font */
 body {
   font-family: 'Source Sans Pro', sans-serif;
@@ -28,3 +30,11 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+
+ /* modify the <main> to center and create the container */
+main {
+  width: 90%;
+  background-color: #46c297;
+  margin: auto;
+}

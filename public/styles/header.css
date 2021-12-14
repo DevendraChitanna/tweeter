@@ -1,0 +1,17 @@
+header {
+  height: 400px;
+  width: 100%;
+  background-color: slateblue;
+  background-image: url(../images/black-thread-light.png);
+  /* position: absolute; */
+  margin-top: 18vh;
+    padding: 5vh;
+  
+}
+
+.avatar {
+  display:flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+}
