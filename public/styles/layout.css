@@ -13,8 +13,13 @@ html {
 /*
  * Global layout stuff
  */
-
+/* set nav to use bungee font */
+nav {
+  font-family: 'Bungee', cursive;
+}
+/* everything in the body will use source sans pro font */
 body {
+  font-family: 'Source Sans Pro', sans-serif;
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px;
