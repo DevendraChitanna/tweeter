@@ -18,5 +18,17 @@ $(document).ready(function () {
     } else if (counter >= 0) {
       $('.counter').css('color', 'black')
     }
+
+    if ($("#tweet-text").val() !== "") {
+      $(".error-msg")
+        .html("")
+        .slideUp();
+    }
+
+    // if ($("#tweet-text").val().length < 140) {
+    //   $(".error-msg")
+    //     .html("")
+    //     .slideUp();
+    // }
   })
 });

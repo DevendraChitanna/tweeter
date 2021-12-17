@@ -44,6 +44,12 @@
     integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+  <!-- Import Timeago -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"
+    integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 
 </head>
 
@@ -74,9 +80,10 @@
 
     <section class="new-tweet">
       <h2>Compose Tweet</h2>
-      <form action="/tweets" method="POST">
+      <script class="error-msg"></script>
+      <form id="new-tweet-form" action="/tweets" method="POST">
         <!-- <label for="tweet-text">What are you humming about?</label> -->
-        <textarea name="tweet-text" id="tweet-text" placeholder="What are you humming about?"></textarea>
+        <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
         <div class="tweet-control">
           <button class="tweet-button" type="submit">Tweet</button>
           <output name="counter" class="counter" for="tweet-text">140</output>
@@ -91,24 +98,7 @@
 
     <!-- creating new tweets -->
     <section id="tweet-container">
-      <article class='tweet'>
-        <header class="header-tweet">
-          <div>
-            <img class="resize" src="images/profile-hex.png">
-            <a>Newton</a>
-          </div>
-          <strong>@Sirisaac</strong>
-        </header>
-        <p class="view-tweet">Tweets go here</p>
-        <footer class="footer-tweet">
-          <small>10 days ago</small>
-          <div class='icons'>
-            <i class="fas fa-flag"></i>
-            <i class="fas fa-retweet"></i>
-            <i class="fas fa-heart"></i>
-          </div>
-        </footer>
-      </article>
+
     </section>
   </main>
 </body>

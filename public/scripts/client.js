@@ -9,6 +9,13 @@
 
 // Fake data taken from initial-tweets.json
 
+//Escape function
+const escape = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
+
 
 let tweetData = {
   "user": {
@@ -53,7 +60,7 @@ const createTweetElement = function (tweetData) {
           </div>
           <strong>${tweetData.user.handle}</strong>
         </header>
-        <p class="view-tweet">${tweetData.content.text}</p>
+        <p class="view-tweet">${escape(tweetData.content.text)}</p>
         <footer class="footer-tweet">
           <small>${timeago.format(tweetData.created_at)}</small>
           <div class='icons'>
@@ -100,25 +107,35 @@ $(document).ready(function () {
 
   loadTweets()
 
-  $("#new-tweet-form").submit(function (event) {
+  $("#new-tweet-form").on('submit', function (event) {
     event.preventDefault();
     const textBox = $("#tweet-text").val();
     const formData = $(this);
 
     if (textBox === "" || null) {
-      return alert("Error: Your tweet is empty!")
+      // return alert("Error: Your tweet is empty!")
+      $(".error-msg")
+        .html("🛑Error: Your tweet is empty!🛑")
+        .slideDown();
     };
 
+
+
     if (textBox.length > 140) {
-      return alert("Error: Too many characters. Only 140 or less")
-    };
-    console.log("formData", formData.serialize());
-    $.ajax('/tweets', { method: 'POST', data: formData.serialize() })
-      .then(function () {
-        console.log("Tweet posted");
-        $('#tweet-container').html('');
-        loadTweets()
-      });
+      // return alert("Error: Too many characters. Only 140 or less")
+      $(".error-msg")
+        .html("🛑Error: Too many characters. Only 140 or less🛑")
+        .slideDown();
+    } else {
+      console.log("formData", formData.serialize());
+      $.ajax('/tweets', { method: 'POST', data: formData.serialize() })
+        .then(function () {
+          console.log("Tweet posted");
+          $('#tweet-container').html('');
+          loadTweets()
+        });
+
+    }
 
   });
 

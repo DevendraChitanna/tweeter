@@ -26,3 +26,8 @@
   display: flex;
   justify-content: space-between;
 }
+
+.avatar-name {
+  display: flex;
+  justify-content: row;
+}

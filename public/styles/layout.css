@@ -86,3 +86,7 @@ justify-content: space-between;
 section#tweet-container:hover{
   box-shadow: 5px 10px;
 }
+
+.error-msg {
+  color: red;
+}
