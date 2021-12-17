@@ -1,10 +1,16 @@
+
 /*
  * Client-side JS logic goes here
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-let tweet = {
+
+
+// Fake data taken from initial-tweets.json
+
+
+let tweetData = {
   "user": {
     "name": "Newton",
     "avatars": "https://i.imgur.com/73hZDYK.png",
@@ -16,6 +22,18 @@ let tweet = {
   "created_at": 1461116232227
 }
 
+
+const renderTweets = function (tweets) {
+  tweets.forEach((tweet) => {
+    let myTweet = createTweetElement(tweet);
+    $('#tweet-container').prepend(myTweet);
+
+  })
+
+}
+
+
+//************************************************** */
 const createTweetElement = function (tweetData) {
   // let name = tweetData.user.name;
   // let avatars = tweetData.user.avatars;
@@ -29,15 +47,15 @@ const createTweetElement = function (tweetData) {
  
   
         <header class="header-tweet">
-          <div>
+          <div class="avatar-name">
             <img class="resize" src="${tweetData.user.avatars}">
-            <a>${tweetData.user.name}</a>
+            <p>${tweetData.user.name}</p>
           </div>
           <strong>${tweetData.user.handle}</strong>
         </header>
         <p class="view-tweet">${tweetData.content.text}</p>
         <footer class="footer-tweet">
-          <small>${tweetData.created_at}</small>
+          <small>${timeago.format(tweetData.created_at)}</small>
           <div class='icons'>
             <i class="fas fa-flag"></i>
             <i class="fas fa-retweet"></i>
@@ -50,15 +68,59 @@ const createTweetElement = function (tweetData) {
  `;
 
   // Test / driver code (temporary)
-  console.log($tweet); // to see what it looks like
+  // console.log("***$$$", $tweet); // to see what it looks like
   // $('#tweets-container').append($tweet); // to add it to the page so
   // we can make sure it's got all the right elements, classes, etc.
   let tweetElement = $tweet.append(html);
+  console.log("***$$$", tweetElement);
   return tweetElement;
 
 }
-
+//*********************************************************** */
 // let $tweet = createTweetElement(tweet)
-createTweetElement(tweet)
+
+const loadTweets = function () {
+  $.ajax('http://localhost:8080/tweets', { method: 'GET', dataType: "json" })
+    .then(function (newTweets) {
+      renderTweets(newTweets);
+    });
+}
+//***************************************************** */
+$(document).ready(function () {
+
+  // const $tweet = createTweetElement(tweetData)
+
+  // console.log($tweet); // to see what it looks like
+  // // $('#tweet-container').append($tweet);
 
 
+
+  // renderTweets(data);
+
+
+  loadTweets()
+
+  $("#new-tweet-form").submit(function (event) {
+    event.preventDefault();
+    const textBox = $("#tweet-text").val();
+    const formData = $(this);
+
+    if (textBox === "" || null) {
+      return alert("Error: Your tweet is empty!")
+    };
+
+    if (textBox.length > 140) {
+      return alert("Error: Too many characters. Only 140 or less")
+    };
+    console.log("formData", formData.serialize());
+    $.ajax('/tweets', { method: 'POST', data: formData.serialize() })
+      .then(function () {
+        console.log("Tweet posted");
+        $('#tweet-container').html('');
+        loadTweets()
+      });
+
+  });
+
+
+});
