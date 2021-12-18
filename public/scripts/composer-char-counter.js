@@ -1,13 +1,7 @@
 $(document).ready(function () {
-  // --- our code goes here ---
-  // alert('The DOM is loaded')
+
   $('#tweet-text').on('keyup', (e) => {
-    // console.log("event ===>", e)
-    // console.log("target  ===>", e.target)
-    console.log("value ===>", e.target.value)
-    // console.log("length ===>", e.target.value.length)
     const inputLength = e.target.value.length;
-    // console.log(inputLength)
 
     const counter = 140 - inputLength;
 
@@ -25,10 +19,6 @@ $(document).ready(function () {
         .slideUp();
     }
 
-    // if ($("#tweet-text").val().length < 140) {
-    //   $(".error-msg")
-    //     .html("")
-    //     .slideUp();
-    // }
+
   })
 });

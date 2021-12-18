@@ -1,8 +1,4 @@
-/*
- * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
- * https://css-tricks.com/international-box-sizing-awareness-day/
- * Do not modify these two selectors, please
- */
+
 html {
   box-sizing: border-box;
 }
@@ -10,10 +6,7 @@ html {
   box-sizing: inherit;
 }
 
-/*
- * Global layout stuff
- */
-/* set nav to use bungee font */
+
 nav {
   font-family: 'Bungee', cursive;
 }
@@ -39,17 +32,10 @@ main {
   margin: auto;
 }
 
-/* Tweet container | Where the tweets in the DB will be shown */
 /* CSS Style for how they will look */
 
-/* #tweet-container{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border-style: solid;
-} */
 
-/* NOT WORKING??? */
+
 article.tweet {
   border: 2px solid #333;
   border-radius: 5px;
@@ -126,9 +112,10 @@ margin-bottom: 30px;
     
   }
 
+/* Tweet container | Where the tweets in the DB will be shown */
   #tweet-container{
     height: 15vh;
-    width: 100%
+    width: 100%;
   }
 
 }

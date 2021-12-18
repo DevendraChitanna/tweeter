@@ -1,13 +1,4 @@
 
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
-
-
-
-// Fake data taken from initial-tweets.json
 
 //Escape function
 const escape = function (str) {
@@ -42,11 +33,7 @@ const renderTweets = function (tweets) {
 
 //************************************************** */
 const createTweetElement = function (tweetData) {
-  // let name = tweetData.user.name;
-  // let avatars = tweetData.user.avatars;
-  // let handle = tweetData.user.handle;
-  // let text = tweetData.content.text;
-  // let date = tweetData.created_at;
+
 
   let $tweet = $("<article>").addClass("tweet");
 
@@ -69,12 +56,8 @@ const createTweetElement = function (tweetData) {
         </footer>
  `;
 
-  // Test / driver code (temporary)
-  // console.log("***$$$", $tweet); // to see what it looks like
-  // $('#tweets-container').append($tweet); // to add it to the page so
-  // we can make sure it's got all the right elements, classes, etc.
+
   let tweetElement = $tweet.append(html);
-  console.log("***$$$", tweetElement);
   return tweetElement;
 
 }
@@ -108,7 +91,6 @@ $(document).ready(function () {
     const formData = $(this);
 
     if (textBox === "" || null) {
-      // return alert("Error: Your tweet is empty!")
       $(".error-msg")
         .html("🛑Error: Your tweet is empty!🛑")
         .slideDown();
@@ -117,7 +99,6 @@ $(document).ready(function () {
 
 
     if (textBox.length > 140) {
-      // return alert("Error: Too many characters. Only 140 or less")
       $(".error-msg")
         .html("🛑Error: Too many characters. Only 140 or less🛑")
         .slideDown();
@@ -127,10 +108,9 @@ $(document).ready(function () {
         .then(function () {
           console.log("Tweet posted");
           $('#tweet-container').html('');
-          loadTweets()
-          $("#tweet-text").val("")
-          console.log("HTML ====>", $(".counter").html())
-          $(".counter").html()
+          loadTweets();
+          $("#tweet-text").val("");
+          $(".counter").html();
         });
 
     }
