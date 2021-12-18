@@ -16,3 +16,12 @@ This repository is the starter code for the project: Students will fork and clon
 
 - Express
 - Node 5.10.x or above
+- Chance
+- body-parser
+
+## Screenshots
+!["Desktop View"](https://github.com/DevendraChitanna/tweeter/blob/master/public/images/Screen%20Shot%202021-12-18%20at%201.31.43%20AM.png)
+>Desktop View
+
+!["Mobile and Tablet view"] (https://raw.githubusercontent.com/DevendraChitanna/tweeter/master/public/images/Screen%20Shot%202021-12-18%20at%201.32.43%20AM.png)
+>Mobile/Tablet view
