@@ -133,6 +133,9 @@ $(document).ready(function () {
           console.log("Tweet posted");
           $('#tweet-container').html('');
           loadTweets()
+          $("#tweet-text").val("")
+          console.log("HTML ====>", $(".counter").html())
+          $(".counter").html("140")
         });
 
     }
