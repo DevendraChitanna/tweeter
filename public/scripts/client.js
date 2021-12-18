@@ -48,11 +48,9 @@ const createTweetElement = function (tweetData) {
   // let text = tweetData.content.text;
   // let date = tweetData.created_at;
 
-  let $tweet = $("<atricle>").addClass("tweet");
+  let $tweet = $("<article>").addClass("tweet");
 
   const html = `
- 
-  
         <header class="header-tweet">
           <div class="avatar-name">
             <img class="resize" src="${tweetData.user.avatars}">
@@ -69,9 +67,6 @@ const createTweetElement = function (tweetData) {
             <i class="fas fa-heart"></i>
           </div>
         </footer>
-
-  
-
  `;
 
   // Test / driver code (temporary)
@@ -135,7 +130,7 @@ $(document).ready(function () {
           loadTweets()
           $("#tweet-text").val("")
           console.log("HTML ====>", $(".counter").html())
-          $(".counter").html("140")
+          $(".counter").html()
         });
 
     }
